@@ -10,5 +10,6 @@
         "datasourceTemplate": "github-tags",
         "versioningTemplate": "semver"
       }
-    ]
+    ], 
+    "commitMessage":"test {{{commitMessagePrefix}}} {{{commitMessageAction}}} {{{commitMessageTopic}}} {{{commitMessageExtra}}} {{{commitMessageSuffix}}}"
  }
