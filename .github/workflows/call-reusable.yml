@@ -7,4 +7,4 @@ on:
 
 jobs:
   call-workflow:
-    uses: TechTroveTutorials/commonworkflows/.github/workflows/reusable.yml@v1.1.1
+    uses: TechTroveTutorials/commonworkflows/.github/workflows/reusable.yml@v1.1.0
