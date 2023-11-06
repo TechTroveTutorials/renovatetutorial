@@ -11,6 +11,5 @@
         "versioningTemplate": "semver"
       }
     ],
-    "autodiscoverNamespaces": ["TechTroveTutorials"]
-
+    "autodiscoverTopics": ["managed-by-renovate"]
   }
