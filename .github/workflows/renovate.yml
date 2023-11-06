@@ -1,9 +1,9 @@
 name: Renovate Bot
 
 on:
-  schedule:
+ #  schedule:
     # Run Renovate once a day at a specific time
-    - cron: '*/5 * * * *'
+ #    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 jobs:
