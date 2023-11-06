@@ -5,11 +5,10 @@
       {
         "fileMatch": ["^\\.github/workflows/[^/]+\\.yml$"],
         "matchStrings": [
-          "uses: TechTroveTutorials/commonworkflows/\\.github/workflows/reusable\\.yml@(?<currentValue>v?\\d+\\.\\d+\\.\\d+)"
+            "uses: (?<depName>[\\w-]+/[\\w-]+/.github/workflows/[\\w-]+)@(?<currentValue>v?\\d+\\.\\d+\\.\\d+)"
         ],
         "datasourceTemplate": "github-tags",
         "versioningTemplate": "semver"
       }
-    ],
-    "autodiscoverTopics": ["managed-by-renovate"]
-  }
+    ]
+ }
