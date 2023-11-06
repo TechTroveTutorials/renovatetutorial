@@ -10,5 +10,7 @@
         "datasourceTemplate": "github-tags",
         "versioningTemplate": "semver"
       }
-    ]
+    ],
+    "autodiscoverNamespaces": ["TechTroveTutorials"]
+
   }
