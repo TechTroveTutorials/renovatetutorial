@@ -1,4 +1,18 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "commitMessage": "1 {{{commitMessagePrefix}}} {{{commitMessageAction}}} {{{commitMessageTopic}}} {{{commitMessageExtra}}} {{{commitMessageSuffix}}}"
-}
+    "extends": ["config:base"],
+    "github-actions": {
+        "enabled": false
+    },
+    "regexManagers": [
+      {
+        "fileMatch": ["^\\.github/workflows/[^/]+\\.yml$"],
+        "matchStrings": [
+            "uses: (?<depName>[\\w-]+/[\\w-]+/.github/workflows/[\\w-]+)@(?<currentValue>v?\\d+\\.\\d+\\.\\d+)"
+        ],
+        "datasourceTemplate": "github-tags",
+        "versioningTemplate": "semver"
+      }
+    ], 
+    "commitMessage":"2 {{{commitMessagePrefix}}} {{{commitMessageAction}}} {{{commitMessageTopic}}} {{{commitMessageExtra}}} {{{commitMessageSuffix}}}"
+ }
