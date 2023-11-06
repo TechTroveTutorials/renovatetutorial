@@ -20,8 +20,9 @@ jobs:
         run: npm install -g renovate
 
       - name: Run Renovate Bot
-        run: renovate
+        run: renovate --dry-run=true --autodiscover
         env:
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
           GITHUB_COM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RENOVATE_PLATFORM: "github"
+          LOG_LEVEL: debug
