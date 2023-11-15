@@ -35,8 +35,8 @@ spec:
         version: v2
     spec:
       containers:
-      - image: lordofthejars/diffy:1.0
-        imagePullPolicy: IfNotPresent
+      - image: diffy/diffy
+        imagePullPolicy: Always
         livenessProbe:
           exec:
             command:
@@ -46,15 +46,29 @@ spec:
           periodSeconds: 60
           timeoutSeconds: 1
         name: httpbin-diffy
-        args: ["-candidate=httpbin-candidate:8080", "-master.primary=httpbin-master:8080", "-master.secondary=httpbin-master:8080", "-service.protocol=http", "-serviceName=httpbin", "-proxy.port=:8880", "-admin.port=:8881", "-http.port=:8888", "-rootUrl='localhost:8888'"]
+        env:
+        - name: candidate
+          value: "httpbin-candidate:8080"
+        - name: master.primary
+          value: "httpbin-master:8080"
+        - name: master.secondary
+          value: "httpbin-master:8080"
+        - name: service.protocol
+          value: "http"
+        - name: proxy.port
+          value: "8880"
+        - name: rootUrl
+          value: "localhost:8888"
+        - name: serviceName
+          value: "Example Service"
         ports:
         - containerPort: 8888
           name: http-console
           protocol: TCP
-        - containerPort: 8888
+        - containerPort: 8880
           name: http-proxy
           protocol: TCP
-        - containerPort: 8888
+        - containerPort: 8881
           name: http-admin
           protocol: TCP
         readinessProbe:

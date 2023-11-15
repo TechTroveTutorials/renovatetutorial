@@ -1,0 +1,18 @@
+{{- range $name, $config := .Values.components }}
+    {{- $config := set . "Capabilities" $.Capabilities }}
+    {{- $config := set . "Template" $.Template }}
+    {{- $config := set . "name" ($name | lower) }}
+    {{- $config := set . "Release" $.Release }}
+    {{- $config := set . "Chart" $.Chart }}
+    {{- $config := set . "serviceAccount" $.Values.serviceAccount }}
+    {{- $config := set . "observability" $.Values.observability }}
+    {{- $config := set . "defaultValues" $.Values.default }}
+
+    {{- if $config.enabled -}}
+        {{- include "monitoring.deployment" $config -}}
+        {{- include "monitoring.service" $config -}}
+        {{- include "monitoring.ingress" $config -}}
+        {{- include "monitoring.configmap" $config -}}
+    {{ end }}
+
+{{- end }}
