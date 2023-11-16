@@ -5,6 +5,8 @@ kubectl exec httpbin-diffy-v2-6c6c5dd799-2kpq4 -- curl  -H 'Canonical-Resource :
 kubectl port-forward svc/httpbin-diffy  8880
 kubectl port-forward svc/httpbin-diffy  8888
 
+kubectl port-forward svc/monitoring-jaeger-query 16686
+
 
 kubectl port-forward svc/monitoring-grafana 3000:80
 
