@@ -61,6 +61,36 @@ spec:
           value: "localhost:8888"
         - name: serviceName
           value: "Example Service"
+        - name: otel.javaagent.debug
+          value: "false"
+        - name: otel.metrics.exporter
+          value: "none"
+        - name: otel.traces.exporter
+          value: "jaeger"
+        - name: otel.exporter.jaeger.endpoint
+          value:  "http://tempo:14250"
+        - name: otel.exporter.jaeger.traces.endpoint
+          value:  "http://tempo:14250"
+        - name: otel.resource.attributes
+          value: "service.name=diffy"
+        - name: spring.application.name
+          value: "diffy"
+        - name: logging.level.web
+          value: "INFO"
+        - name: logging.level.io.opentelemetry
+          value:  "WARN"
+        - name: logging.level.root
+          value: "INFO"
+        - name: logging.file.name
+          value: "/app/logs/diffy.log"
+        - name: logging.file.max-size
+          value: "10MB"
+        - name: logging.file.max-history
+          value: 1
+        - name: logging.file.clean-history-on-start
+          value: "true"
+        - name: spring.mongodb.embedded.version
+          value: "4.4.13"
         ports:
         - containerPort: 8888
           name: http-console
