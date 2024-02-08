@@ -37,16 +37,19 @@ jobs:
           openapi_file_url: 'http://localhost:8080/swagger.json' # Adjust based on your app's OpenAPI spec URL
           cmd_options: "-T 60 -r owasp_zap_report.html -w owasp_zap_report.md -J owasp_zap_report.json -a"
 
-      - name: Convert ZAP report to SARIF
-        uses: zaproxy/action-report-sarif@v0.2.0
-        with:
-          input_file: 'owasp_zap_report.json'
-          output_file: 'owasp_zap_report.sarif'
+      # - name: Create sarif file from zaproxy results
+      #   uses: SvanBoxel/zaproxy-to-ghas@main
 
-      - name: Upload SARIF file to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: 'owasp_zap_report.sarif'
+      # - name: Convert ZAP report to SARIF
+      #   uses: zaproxy/action-report-sarif@v0.2.0
+      #   with:
+      #     input_file: 'owasp_zap_report.json'
+      #     output_file: 'owasp_zap_report.sarif'
+
+      # - name: Upload SARIF file to GitHub Security tab
+      #   uses: github/codeql-action/upload-sarif@v1
+      #   with:
+      #     sarif_file: 'owasp_zap_report.sarif'
 
       - name: Shutdown Docker Compose
         if: always()
