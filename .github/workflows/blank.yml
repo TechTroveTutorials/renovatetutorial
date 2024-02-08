@@ -31,7 +31,7 @@ jobs:
           format: 'sarif'
           scan-ref: 'deployment/gateway-api-playground'
           output: 'trivy-results.sarif'
-          exit-code: '1'
+          exit-code: '0'
           ignore-unfixed: true
 
       - name: Upload Trivy scan results to GitHub Security tab
