@@ -22,12 +22,12 @@ jobs:
       - name: Start application with Docker Compose
         run: docker-compose up -d
 
-      - name: Wait for application to become healthy
-        run: |
-          until [ "$(docker inspect --format='{{json .State.Health.Status}}' $(docker-compose ps -q webapp))" == "\"healthy\"" ]; do
-            echo "Waiting for webapp service to be healthy..."
-            sleep 10
-          done
+      # - name: Wait for application to become healthy
+      #   run: |
+      #     until [ "$(docker inspect --format='{{json .State.Health.Status}}' $(docker-compose ps -q webapp))" == "\"healthy\"" ]; do
+      #       echo "Waiting for webapp service to be healthy..."
+      #       sleep 10
+      #     done
 
       - name: OWASP ZAP Scan
         uses: zaproxy/action-full-scan@v0.4.0
