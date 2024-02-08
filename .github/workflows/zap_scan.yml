@@ -35,7 +35,7 @@ jobs:
           target: 'http://localhost:80'
           format: 'openapi'
           openapi_file_url: 'http://localhost:80/swagger.json' # Adjust based on your app's OpenAPI spec URL
-          cmd_options: "-T 60 -r owasp_zap_report.html -w owasp_zap_report.md -J owasp_zap_report.json -a"
+          cmd_options: "-T 60  -a"
 
       # - name: Create sarif file from zaproxy results
       #   uses: SvanBoxel/zaproxy-to-ghas@main
