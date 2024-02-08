@@ -1,28 +1,28 @@
-name: Renovate Bot
+# name: Renovate Bot
 
-on:
- #  schedule:
-    # Run Renovate once a day at a specific time
- #    - cron: '*/5 * * * *'
-  workflow_dispatch:
+# on:
+#  #  schedule:
+#     # Run Renovate once a day at a specific time
+#  #    - cron: '*/5 * * * *'
+#   workflow_dispatch:
 
-jobs:
-  renovate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the default branch
-        uses: actions/checkout@v3
+# jobs:
+#   renovate:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout the default branch
+#         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v3
 
-      - name: Install Renovate Bot
-        run: npm install -g renovate
+#       - name: Install Renovate Bot
+#         run: npm install -g renovate
 
-      - name: Run Renovate Bot
-        run: renovate  --autodiscover 
-        env:
-          RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
-          GITHUB_COM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RENOVATE_PLATFORM: "github"
-          RENOVATE_AUTODISCOVER_TOPICS: "managed-by-renovate"
+#       - name: Run Renovate Bot
+#         run: renovate  --autodiscover 
+#         env:
+#           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
+#           GITHUB_COM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           RENOVATE_PLATFORM: "github"
+#           RENOVATE_AUTODISCOVER_TOPICS: "managed-by-renovate"
